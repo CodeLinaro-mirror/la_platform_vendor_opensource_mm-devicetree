@@ -1,5 +1,6 @@
 ifeq ($(CONFIG_ARCH_SUN), y)
 	dtbo-y += hw_fence/sun-hw-fence.dtbo \
+		hfi_core/sun-hfi-core.dtbo \
 		sun-mm-cdp-kiwi-overlay.dtbo \
 		sun-mm-cdp-kiwi-v8-overlay.dtbo \
 		sun-mm-cdp-nfc-overlay.dtbo \
