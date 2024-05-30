@@ -22,10 +22,14 @@
 
 		/* MBOX properties */
 		mboxes = <&ipcc_fence IPCC_CLIENT_SOCCP 0>,
-				<&ipcc_fence IPCC_CLIENT_SOCCP 1>;
+				<&ipcc_fence IPCC_CLIENT_SOCCP 1>,
+				<&ipcc_fence IPCC_CLIENT_APSS 1>,
+				<&ipcc_fence IPCC_CLIENT_APSS 2>;
 		interrupt-parent = <&ipcc_fence>;
 		interrupts = <IPCC_CLIENT_SOCCP 0 IRQ_TYPE_EDGE_RISING>,
-				<IPCC_CLIENT_SOCCP 1 IRQ_TYPE_EDGE_RISING>;
+				<IPCC_CLIENT_SOCCP 1 IRQ_TYPE_EDGE_RISING>,
+				<IPCC_CLIENT_APSS 1 IRQ_TYPE_EDGE_RISING>,
+				<IPCC_CLIENT_APSS 2 IRQ_TYPE_EDGE_RISING>;
 
 		/* SOCCP properties */
 		iommus = <&apps_smmu 0x562 0x1>;
