@@ -7,6 +7,7 @@
 /plugin/;
 
 #include "hw_fence/sun-hw-fence.dtsi"
+#include "hfi_core/sun-hfi-core.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Sun MTP QMP1000 V8 Power Grid";

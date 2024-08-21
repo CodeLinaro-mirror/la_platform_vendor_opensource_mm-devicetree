@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved.
+ */
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/mailbox/qcom-ipcc.h>
+
+&soc {
+	ipcc_fence: qcom,ipcc_fence@503000 {
+		compatible = "qcom,ipcc";
+		reg = <0x503000 0x1000>;
+		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;\
+		interrupt-controller;
+		#interrupt-cells = <3>;
+		#mbox-cells = <2>;
+	};
+
+	msm_hfi_core: qcom,hfi-core {
+		compatible = "qcom,msm-hfi-core";
+		status = "ok";
+
+		/* MBOX properties */
+		mboxes = <&ipcc_fence IPCC_CLIENT_SOCCP 0>,
+				<&ipcc_fence IPCC_CLIENT_SOCCP 1>,
+				<&ipcc_fence IPCC_CLIENT_APSS 1>,
+				<&ipcc_fence IPCC_CLIENT_APSS 2>;
+		interrupt-parent = <&ipcc_fence>;
+		interrupts = <IPCC_CLIENT_SOCCP 0 IRQ_TYPE_EDGE_RISING>,
+				<IPCC_CLIENT_SOCCP 1 IRQ_TYPE_EDGE_RISING>,
+				<IPCC_CLIENT_APSS 1 IRQ_TYPE_EDGE_RISING>,
+				<IPCC_CLIENT_APSS 2 IRQ_TYPE_EDGE_RISING>;
+
+		/* SOCCP properties */
+		iommus = <&apps_smmu 0x562 0x1>;
+		dma-coherent;
+		soccp_controller = <&soccp_pas>;
+
+		/* mdss register */
+		qcom,mdss-reg = <0xAE00000 0x200000>;
+
+		/* swi register (not right values. Fix this: TODO) */
+		qcom,swi-reg = <0xC221000 0x1000>;
+
+		/* io-mem specific */
+		hfi_core@1 {
+			compatible = "qcom,msm-hfi-core-mem";
+			qcom,master;
+			shared-buffer = <&hwfence_shbuf>;
+		};
+	};
+};
