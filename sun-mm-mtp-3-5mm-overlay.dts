@@ -7,7 +7,6 @@
 /plugin/;
 
 #include "hw_fence/sun-hw-fence.dtsi"
-#include "hfi_core/sun-hfi-core.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Sun MTP with 3.5mm";
