@@ -26,6 +26,24 @@ ifeq ($(CONFIG_ARCH_SUN), y)
 		sun-mm-cdp-no-display-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_CANOE), y)
+	dtbo-y += hw_fence/canoe-hw-fence.dtbo \
+		canoe-mm-atp-overlay.dtbo \
+		canoe-mm-cdp-kiwi-overlay.dtbo \
+		canoe-mm-cdp-mango-overlay.dtbo \
+		canoe-mm-cdp-overlay.dtbo \
+		canoe-mm-mtp-kiwi-overlay.dtbo \
+		canoe-mm-mtp-overlay.dtbo \
+		canoe-mm-mtp-qmp1000-overlay.dtbo \
+		canoe-mm-mtp-mango-overlay.dtbo \
+		canoe-mm-mtp-3.5mm-overlay.dtbo \
+		canoe-mm-qrd-overlay.dtbo \
+		canoe-mm-rcm-kiwi-overlay.dtbo \
+		canoe-mm-rcm-mango-overlay.dtbo \
+		canoe-mm-rcm-overlay.dtbo \
+		canoe-mm-rumi-overlay.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
