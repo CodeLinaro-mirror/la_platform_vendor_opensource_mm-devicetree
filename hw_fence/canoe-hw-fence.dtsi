@@ -17,6 +17,7 @@
 	iommus = <&apps_smmu 0x562 0x1>;
 	dma-coherent;
 	soccp_controller = <&soccp_pas>;
+	shbuf_soccp_va = <0xd4e23000>;
 
 	qcom,hw-fence-table-entries = <8192>;
 	qcom,hw-fence-queue-entries = <800>;
