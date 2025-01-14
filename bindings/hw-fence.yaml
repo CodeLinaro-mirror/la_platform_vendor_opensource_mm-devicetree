@@ -67,6 +67,11 @@ properties:
     description: phandle for the soccp controller.
     $ref: /schemas/types.yaml#/definitions/phandle
 
+  shbuf_soccp_va:
+    description: |
+      A u32 indicating the soccp virtual address for which shared memory is mapped to.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
   interrupts:
     description: Interrupt associated with APSS NS0 (to receive interrupts from SOCCP).
 
@@ -123,27 +128,34 @@ required:
   - qcom,ipcc-reg
   - qcom,hw-fence-table-entries
   - qcom,hw-fence-queue-entries
-  - hw_fence@1
 
-if:
-  required:
-    - soccp-controller
-then:
-  required:
-    - interrupts
-    - interrupt-controller
-    - '#interrupt-cells'
-    - iommus
-    properties:
-      hw_fence@0: false
-else:
-  required:
-    - hw_fence@0
-  properties:
-    - interrupts: false
-    - interrupt-controller: false
-    - '#interrupt-cells': false
-    - iommus: false
+allOf:
+  - if:
+      required:
+        - soccp-controller
+    then:
+      required:
+        - interrupts
+        - interrupt-controller
+        - '#interrupt-cells'
+        - iommus
+        properties:
+          hw_fence@0: false
+    else:
+      required:
+        - hw_fence@0
+      properties:
+        - interrupts: false
+        - interrupt-controller: false
+        - '#interrupt-cells': false
+        - iommus: false
+  - if:
+      required:
+        properties:
+          hw_fence@1: false
+      then:
+        required:
+          - shbuf_soccp_va
 
 additionalProperties: false
 
@@ -223,5 +235,37 @@ examples:
         qcom,master;
         shared-buffer = <&hwfence_shbuf>;
       };
+    };
+
+  - |
+    msm_hw_fence: qcom,hw-fence {
+      compatible = "qcom,msm-hw-fence";
+      status = "ok";
+
+      # SOCCP properties
+      interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-controller;
+      #interrupt-cells = <1>;
+      iommus = <&apps_smmu 0x562 0x1>;
+      dma-coherent;
+      soccp_controller = <&soccp_pas>;
+      shbuf_soccp_va = <0xd4e23000>;
+
+      qcom,ipcc-reg = <0x1100000 0x400000>;
+      qcom,hw-fence-table-entries = <8192>;
+      qcom,hw-fence-queue-entries = <800>;
+
+      # time register
+      qcom,qtime-reg = <0xC221000 0x1000>;
+
+      # ipc version
+      qcom,hw-fence-ipc-ver = <0x30102>;
+
+      # base client queue properties
+      qcom,hw-fence-client-type-dpu = <4 2 128 0>;
+      qcom,hw-fence-client-type-ife2 = <3 1 64 1>;
+
+      # extra client queue properties
+      qcom,hw-fence-client-type-ife2-extra = <20 28 1 1>;
     };
 ...
