@@ -28,6 +28,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_CANOE), y)
 	dtbo-y += hw_fence/canoe-hw-fence.dtbo \
+		hfi_core/canoe-hfi-core.dtbo \
 		canoe-mm-atp-overlay.dtbo \
 		canoe-mm-cdp-kiwi-overlay.dtbo \
 		canoe-mm-cdp-mango-overlay.dtbo \
