@@ -49,6 +49,12 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		alor-interposer-mm-qrd-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_VIENNA), y)
+	dtbo-y += hfi_core/vienna-hfi-core.dtbo \
+		vienna-mm-rumi-overlay.dtbo	\
+		vienna-mm-wdp-overlay.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
