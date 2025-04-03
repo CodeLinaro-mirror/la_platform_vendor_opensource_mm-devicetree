@@ -27,7 +27,7 @@
 		iommus = <&apps_smmu 0x0ba3 0x0>;
 
 		/* page 1 */
-		reg = <0x0 0x22b1000 0x0 0x1000>;
+		reg = <0x22b1000 0x1000>;
 		reg-names = "swi_dev0";
 
 		/* firmware map start addr and max size */
