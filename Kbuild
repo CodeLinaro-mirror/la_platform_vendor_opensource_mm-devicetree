@@ -42,7 +42,11 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		canoe-mm-rcm-kiwi-overlay.dtbo \
 		canoe-mm-rcm-mango-overlay.dtbo \
 		canoe-mm-rcm-overlay.dtbo \
-		canoe-mm-rumi-overlay.dtbo
+		canoe-mm-rumi-overlay.dtbo \
+		alor-interposer-mm-rcm-overlay.dtbo \
+		alor-interposer-mm-mtp-overlay.dtbo \
+		hw_fence/alor-interposer-hw-fence.dtbo \
+		alor-interposer-mm-qrd-overlay.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
