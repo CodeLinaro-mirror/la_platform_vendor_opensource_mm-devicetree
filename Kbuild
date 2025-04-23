@@ -52,7 +52,8 @@ endif
 ifeq ($(CONFIG_ARCH_VIENNA), y)
 	dtbo-y += hfi_core/vienna-hfi-core.dtbo \
 		vienna-mm-rumi-overlay.dtbo	\
-		vienna-mm-wdp-overlay.dtbo
+		vienna-mm-wdp-overlay.dtbo	\
+		vienna-mm-idp-overlay.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
