@@ -47,7 +47,12 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
-	dtbo-y += hw_fence/alor-hw-fence.dtbo
+	dtbo-y += hw_fence/alor-hw-fence.dtbo \
+		alor-mm-atp-overlay.dtbo \
+		alor-mm-cdp-overlay.dtbo \
+		alor-mm-mtp-overlay.dtbo \
+		alor-mm-qrd-overlay.dtbo \
+		alor-mm-rcm-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_VIENNA), y)
