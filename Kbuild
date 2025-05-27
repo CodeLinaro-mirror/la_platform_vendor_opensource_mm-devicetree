@@ -54,7 +54,10 @@ ifeq ($(CONFIG_ARCH_VIENNA), y)
 		vienna-mm-rumi-overlay.dtbo	\
 		vienna-mm-wdp-overlay.dtbo	\
 		vienna-mm-idp-overlay.dtbo	\
-		vienna-mm-wrd-overlay.dtbo
+		vienna-mm-wrd-overlay.dtbo	\
+		vienna-mm-atp-overlay.dtbo	\
+		vienna-mm-rcm-overlay.dtbo
+
 
 endif
 
