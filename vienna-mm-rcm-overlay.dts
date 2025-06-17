@@ -9,8 +9,8 @@
 #include "hfi_core/vienna-hfi-core.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Vienna IDP";
-	compatible = "qcom,vienna-idp", "qcom,vienna", "qcom,idp";
+	model = "Qualcomm Technologies, Inc. Vienna RCM";
+	compatible = "qcom,vienna-rcm", "qcom,vienna", "qcom,rcm";
 	qcom,msm-id = <669 0x10000>, <670 0x10000>;
-	qcom,board-id = <0x10022 0x0>, <0x10022 0x01>;
+	qcom,board-id = <0x10015 0x0>, <0x10015 0x01>;
 };
