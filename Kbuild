@@ -61,6 +61,13 @@ ifeq ($(CONFIG_ARCH_VIENNA), y)
 
 endif
 
+ifeq ($(CONFIG_ARCH_SERAPH), y)
+	dtbo-y += hw_fence/seraph-hw-fence.dtbo \
+		seraph-mm-idp-overlay.dtbo \
+		seraph-mm-idp-no-display-overlay.dtbo \
+		seraph-mm-rumi-overlay.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
