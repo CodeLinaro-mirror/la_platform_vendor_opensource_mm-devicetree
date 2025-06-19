@@ -35,11 +35,5 @@
 	qcom,hw-fence-client-type-vpu = <1 2 800 0>;
 	qcom,hw-fence-client-type-ife0 = <1 1 128 1>;
 
-	/* haven io-mem specific */
-	hw_fence@1 {
-		compatible = "qcom,msm-hw-fence-mem";
-		qcom,master;
-		shared-buffer = <&hwfence_shbuf>;
-	};
 	};
 };
