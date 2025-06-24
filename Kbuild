@@ -48,6 +48,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
 	dtbo-y += hw_fence/alor-hw-fence.dtbo \
+		hfi_core/alor-hfi-core.dtbo \
 		alor-mm-atp-overlay.dtbo \
 		alor-mm-cdp-overlay.dtbo \
 		alor-mm-mtp-overlay.dtbo \
