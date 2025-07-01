@@ -10,11 +10,11 @@
 #include "hfi_core/canoe-hfi-core.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Canoe CDP Mango WLAN";
-	compatible = "qcom,canoe-cdp", "qcom,canoe", "qcom,canoep-cdp", "qcom,canoep",
-			   "qcom,cdp";
+	model = "Qualcomm Technologies, Inc. Canoe RCM + ST54L + Pandeiro";
+	compatible = "qcom,canoe-rcm", "qcom,canoe", "qcom,canoep-rcm", "qcom,canoep",
+			   "qcom,rcm";
 	qcom,msm-id = <660 0x10000>, <660 0x20000>, <661 0x10000>, <661 0x20000>,
 		      <0x1000294 0x10000>, <0x1000294 0x20000>,
-		      <0x1000295 0x10000>, <0x1000295 0x20000>;
-	qcom,board-id = <0x2000001 0>;
+		      <0x1010295 0x10000>, <0x1000295 0x20000>;
+	qcom,board-id = <0x20015 0>;
 };
