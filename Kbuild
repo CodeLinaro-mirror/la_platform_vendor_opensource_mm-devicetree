@@ -75,6 +75,12 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 		seraph-mm-rumi-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_LEMANS), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+	dtbo-y += hw_fence/nordy-hw-fence-vm-la.dtbo
+endif
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
