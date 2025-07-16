@@ -26,6 +26,45 @@ ifeq ($(CONFIG_ARCH_SUN), y)
 		sun-mm-cdp-no-display-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_CANOE), y)
+	dtbo-y += hw_fence/canoe-hw-fence.dtbo \
+		hfi_core/canoe-hfi-core.dtbo \
+		canoe-mm-atp-overlay.dtbo \
+		canoe-mm-cdp-kiwi-overlay.dtbo \
+		canoe-mm-cdp-overlay.dtbo \
+		canoe-mm-cdp-st54l-pandeiro-overlay.dtbo \
+		canoe-mm-mtp-overlay.dtbo \
+		canoe-mm-qrd-sku1-overlay.dtbo \
+		canoe-mm-qrd-sku2-overlay.dtbo \
+		canoe-mm-rcm-kiwi-overlay.dtbo \
+		canoe-mm-rcm-overlay.dtbo \
+		canoe-mm-rcm-st54l-pandeiro-overlay.dtbo \
+		canoe-mm-rumi-overlay.dtbo \
+		alor-interposer-mm-rcm-overlay.dtbo \
+		alor-interposer-mm-mtp-overlay.dtbo \
+		hw_fence/alor-interposer-hw-fence.dtbo \
+		alor-interposer-mm-qrd-overlay.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_VIENNA), y)
+	dtbo-y += hfi_core/vienna-hfi-core.dtbo \
+		vienna-mm-rumi-overlay.dtbo	\
+		vienna-mm-wdp-overlay.dtbo	\
+		vienna-mm-idp-overlay.dtbo	\
+		vienna-mm-wrd-overlay.dtbo	\
+		vienna-mm-atp-overlay.dtbo	\
+		vienna-mm-rcm-overlay.dtbo
+
+
+endif
+
+ifeq ($(CONFIG_ARCH_SERAPH), y)
+	dtbo-y += hw_fence/seraph-hw-fence.dtbo \
+		seraph-mm-idp-overlay.dtbo \
+		seraph-mm-idp-no-display-overlay.dtbo \
+		seraph-mm-rumi-overlay.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
