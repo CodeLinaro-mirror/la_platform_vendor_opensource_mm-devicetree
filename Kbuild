@@ -31,17 +31,14 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		hfi_core/canoe-hfi-core.dtbo \
 		canoe-mm-atp-overlay.dtbo \
 		canoe-mm-cdp-kiwi-overlay.dtbo \
-		canoe-mm-cdp-mango-overlay.dtbo \
 		canoe-mm-cdp-overlay.dtbo \
-		canoe-mm-mtp-kiwi-overlay.dtbo \
+		canoe-mm-cdp-st54l-pandeiro-overlay.dtbo \
 		canoe-mm-mtp-overlay.dtbo \
-		canoe-mm-mtp-qmp1000-overlay.dtbo \
-		canoe-mm-mtp-mango-overlay.dtbo \
-		canoe-mm-mtp-3.5mm-overlay.dtbo \
-		canoe-mm-qrd-overlay.dtbo \
+		canoe-mm-qrd-sku1-overlay.dtbo \
+		canoe-mm-qrd-sku2-overlay.dtbo \
 		canoe-mm-rcm-kiwi-overlay.dtbo \
-		canoe-mm-rcm-mango-overlay.dtbo \
 		canoe-mm-rcm-overlay.dtbo \
+		canoe-mm-rcm-st54l-pandeiro-overlay.dtbo \
 		canoe-mm-rumi-overlay.dtbo \
 		alor-interposer-mm-rcm-overlay.dtbo \
 		alor-interposer-mm-mtp-overlay.dtbo \
@@ -59,6 +56,13 @@ ifeq ($(CONFIG_ARCH_VIENNA), y)
 		vienna-mm-rcm-overlay.dtbo
 
 
+endif
+
+ifeq ($(CONFIG_ARCH_SERAPH), y)
+	dtbo-y += hw_fence/seraph-hw-fence.dtbo \
+		seraph-mm-idp-overlay.dtbo \
+		seraph-mm-idp-no-display-overlay.dtbo \
+		seraph-mm-rumi-overlay.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
