@@ -28,5 +28,11 @@
 		qcom,hw-fence-client-type-test2 = <4 2 64 0>;
 		qcom,hw-fence-client-type-test3 = <4 2 64 0>;
 		qcom,hw-fence-client-type-test4 = <4 2 64 0>;
+		qcom,hw-fence-client-type-vpu = <2 2 128 0>;
+		qcom,hw-fence-client-type-nsp0 = <2 2 128 0>;
+		qcom,hw-fence-client-type-nsp1 = <2 2 128 0>;
+		qcom,hw-fence-client-type-nsp2 = <2 2 128 0>;
+		qcom,hw-fence-client-type-nsp3 = <2 2 128 0>;
+
 	};
 };

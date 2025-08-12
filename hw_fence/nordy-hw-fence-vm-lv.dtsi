@@ -18,6 +18,8 @@
 	qcom,hw-fence-client-enabled-dpu = <8 8>;
 	qcom,hw-fence-client-enabled-dpu1 = <8 8>;
 	qcom,hw-fence-client-enabled-test2 = <0 4>;
+	qcom,hw-fence-client-enabled-vpu = <1 1>;
+	qcom,hw-fence-client-enabled-nsp = <1 1>;
 
 	/* haven io-mem specific */
 	hw_fence@1 {
