@@ -85,6 +85,12 @@ properties:
   iommus:
     description: Specifies the SID's used by this context bank.
 
+  qcom,hw-fence-page-size:
+    description: |
+      A u32 indicating the page size used to align regions in hw-fence memory layout.
+      If not provided in device-tree, default kernel page size is used.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
   soccp-ver:
     description: |
       A u32 indicating the soccp version used by this device.

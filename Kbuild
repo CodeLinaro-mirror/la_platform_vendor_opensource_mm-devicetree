@@ -46,6 +46,17 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		alor-interposer-mm-qrd-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_ART), y)
+	dtbo-y += hw_fence/art-hw-fence.dtbo \
+		hfi_core/art-hfi-core.dtbo \
+		art-mm-atp-overlay.dtbo \
+		art-mm-cdp-overlay.dtbo \
+		art-mm-mtp-overlay.dtbo \
+		art-mm-qrd-overlay.dtbo \
+		art-mm-rcm-overlay.dtbo \
+		art-mm-rumi-overlay.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_ALOR), y)
 	dtbo-y += hw_fence/alor-hw-fence.dtbo \
 		hfi_core/alor-hfi-core.dtbo \
