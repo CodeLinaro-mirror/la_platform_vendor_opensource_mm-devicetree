@@ -67,6 +67,11 @@ properties:
     description: phandle for the soccp controller.
     $ref: /schemas/types.yaml#/definitions/phandle
 
+  shbuf_soccp_va:
+    description: |
+      A u32 indicating the soccp virtual address for which shared memory is mapped to.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
   interrupts:
     description: Interrupt associated with APSS NS0 (to receive interrupts from SOCCP).
 
@@ -79,6 +84,11 @@ properties:
 
   iommus:
     description: Specifies the SID's used by this context bank.
+
+  soccp-ver:
+    description: |
+      A u32 indicating the soccp version used by this device.
+    $ref: /schemas/types.yaml#/definitions/uint32
 
 patternProperties:
   "qcom,hw\-fence\-client\-type\-+\w":
@@ -118,32 +128,80 @@ patternProperties:
         bool indicating whether TxQ rd_wr_idx indexes by payloads instead of
         default dwords
 
+  "qcom,hw\-fence\-client\-enabled\-+\w":
+    description: |
+      A list of u32 describing enabled sub-clients for the specified client on a given GVM.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+    minItems: 2
+    maxItems: 2
+    items:
+      - description: client_id offset for sub-clients enabled for this vm
+        minimum: 0
+        maximum: 31
+      - description: number of sub-clients enabled for given client for this vm
+        minimum: 0
+        maximum: 32
+
 required:
   - compatible
   - qcom,ipcc-reg
   - qcom,hw-fence-table-entries
   - qcom,hw-fence-queue-entries
-  - hw_fence@1
 
-if:
-  required:
-    - soccp-controller
-then:
-  required:
-    - interrupts
-    - interrupt-controller
-    - '#interrupt-cells'
-    - iommus
-    properties:
-      hw_fence@0: false
-else:
-  required:
-    - hw_fence@0
-  properties:
-    - interrupts: false
-    - interrupt-controller: false
-    - '#interrupt-cells': false
-    - iommus: false
+allOf:
+  - if:
+      anyOf:
+        - properties:
+            soccp-controller
+        - properties:
+            qcom,hw-fence-driver-id
+    then:
+      allOf:
+        - required:
+          - interrupts
+          - interrupt-controller
+          - '#interrupt-cells'
+        - properties:
+            hw_fence@0: false
+    else:
+      allOf:
+        - required:
+            hw_fence@0
+        - properties:
+            interrupts: false
+            interrupt-controller: false
+            '#interrupt-cells': false
+            iommus: false
+            shbuf_soccp_va: false
+
+  - if:
+      properties:
+        qcom,hw-fence-driver-id
+    then:
+      - required:
+          qcom,soccp-rev
+      - properties:
+          - soccp-controller: false
+          - iommus: false
+          - shbuf_soccp_va: false
+
+  - if:
+      properties:
+        soccp-controller
+    then:
+      required:
+        iommus
+    else:
+      required:
+        hw_fence@1
+
+  - if:
+      properties:
+        - soccp-controller
+        - hw_fence@1: false
+    then:
+      required:
+        shbuf_soccp_va
 
 additionalProperties: false
 
@@ -223,5 +281,79 @@ examples:
         qcom,master;
         shared-buffer = <&hwfence_shbuf>;
       };
+    };
+
+  - |
+    msm_hw_fence: qcom,hw-fence {
+      compatible = "qcom,msm-hw-fence";
+      status = "ok";
+
+      # SOCCP properties
+      interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-controller;
+      #interrupt-cells = <1>;
+      iommus = <&apps_smmu 0x562 0x1>;
+      dma-coherent;
+      soccp_controller = <&soccp_pas>;
+      shbuf_soccp_va = <0xd4e23000>;
+
+      qcom,ipcc-reg = <0x1100000 0x400000>;
+      qcom,hw-fence-table-entries = <8192>;
+      qcom,hw-fence-queue-entries = <800>;
+
+      # time register
+      qcom,qtime-reg = <0xC221000 0x1000>;
+
+      # ipc version
+      qcom,hw-fence-ipc-ver = <0x30102>;
+
+      # base client queue properties
+      qcom,hw-fence-client-type-dpu = <4 2 128 0>;
+      qcom,hw-fence-client-type-ife2 = <3 1 64 1>;
+
+      # extra client queue properties
+      qcom,hw-fence-client-type-ife2-extra = <20 28 1 1>;
+
+  - |
+    msm_hw_fence: qcom,hw-fence {
+      compatible = "qcom,msm-hw-fence";
+      status = "ok";
+
+      qcom,hw-fence-driver-id = <1>;
+      qcom,soccp-ver = <1>;
+      interrupts = <GIC_SPI 459 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-controller;
+
+      qcom,ipcc-reg = <0x1100000 0x400000>;
+      qcom,hw-fence-table-entries = <8192>;
+      qcom,hw-fence-queue-entries = <800>;
+
+      # time register
+      qcom,qtime-reg = <0xC221000 0x1000>;
+
+      # ipc version
+      qcom,hw-fence-ipc-ver = <0x20003>;
+
+      qcom,hw-fence-client-type-gpu = <2 2 800 0>;
+      qcom,hw-fence-client-type-gpu1 = <2 2 800 0>;
+      qcom,hw-fence-client-type-dpu = <8 1 128 1>;
+      qcom,hw-fence-client-type-dpu1 = <8 1 128 1>;
+      qcom,hw-fence-client-type-val0 = <4 2 0 0>;
+      qcom,hw-fence-client-type-val1 = <4 2 64 0>;
+      qcom,hw-fence-client-type-val2 = <4 2 64 0>;
+
+      qcom,hw-fence-client-enabled-gpu = <0 1>;
+      qcom,hw-fence-client-enabled-gpu1 = <0 1>;
+      qcom,hw-fence-client-enabled-dpu = <0 8>;
+      qcom,hw-fence-client-enabled-dpu1 = <0 8>;
+      qcom,hw-fence-client-enabled-val1 = <0 4>;
+
+      /* haven io-mem specific */
+      hw_fence@1 {
+        compatible = "qcom,msm-hw-fence-mem";
+        qcom,master;
+        shared-buffer = <&soccp_fe_vm_1>;
+      };
+
     };
 ...

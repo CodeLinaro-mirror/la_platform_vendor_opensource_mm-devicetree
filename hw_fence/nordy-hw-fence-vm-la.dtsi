@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "nordy-hw-fence-common.dtsi"
+
+&msm_hw_fence {
+	qcom,hw-fence-driver-id = <1>;
+
+	interrupts = <GIC_SPI 459 IRQ_TYPE_LEVEL_HIGH>;
+	interrupt-controller;
+	#interrupt-cells = <1>;
+
+	qcom,hw-fence-client-enabled-gpu = <0 1>;
+	qcom,hw-fence-client-enabled-gpu1 = <0 1>;
+	qcom,hw-fence-client-enabled-dpu = <0 8>;
+	qcom,hw-fence-client-enabled-dpu1 = <0 8>;
+	qcom,hw-fence-client-enabled-test1 = <0 4>;
+	qcom,hw-fence-client-enabled-vpu = <0 1>;
+	qcom,hw-fence-client-enabled-nsp0 = <0 1>;
+	qcom,hw-fence-client-enabled-nsp1 = <0 1>;
+	qcom,hw-fence-client-enabled-nsp2 = <0 1>;
+	qcom,hw-fence-client-enabled-nsp3 = <0 1>;
+
+	/* haven io-mem specific */
+	hw_fence@1 {
+		compatible = "qcom,msm-hw-fence-mem";
+		qcom,master;
+		shared-buffer = <&soccp_fe_vm_1>;
+	};
+};
