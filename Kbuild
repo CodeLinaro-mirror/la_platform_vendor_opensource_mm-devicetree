@@ -46,6 +46,17 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		alor-interposer-mm-qrd-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_ART), y)
+	dtbo-y += hw_fence/art-hw-fence.dtbo \
+		hfi_core/art-hfi-core.dtbo \
+		art-mm-atp-overlay.dtbo \
+		art-mm-cdp-overlay.dtbo \
+		art-mm-mtp-overlay.dtbo \
+		art-mm-qrd-overlay.dtbo \
+		art-mm-rcm-overlay.dtbo \
+		art-mm-rumi-overlay.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_ALOR), y)
 	dtbo-y += hw_fence/alor-hw-fence.dtbo \
 		hfi_core/alor-hfi-core.dtbo \
@@ -73,6 +84,12 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 		seraph-mm-idp-overlay.dtbo \
 		seraph-mm-idp-no-display-overlay.dtbo \
 		seraph-mm-rumi-overlay.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_LEMANS), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+	dtbo-y += hw_fence/nordy-hw-fence-vm-la.dtbo
+endif
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
