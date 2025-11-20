@@ -51,6 +51,7 @@
 
 		/* extra client properties */
 		qcom,hw-fence-client-type-vpu-extra = <0 0 0 0 0 1>;
+		qcom,hw-fence-client-type-dcp-extra = <0 0 0 0 0 1>;
 
 		/* haven io-mem specific */
 		hw_fence@1 {
