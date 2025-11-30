@@ -121,7 +121,7 @@ patternProperties:
       A list of four u32 indicating extra client queue properties.Later u32 values do not need to
       be provided to provide values for earlier u32 values.
     minItems: 1
-    maxItems: 4
+    maxItems: 5
     $ref: /schemas/types.yaml#/definitions/uint32-array
     items:
     - description: size of padding between queue table header and first queue header in bytes
@@ -133,6 +133,12 @@ patternProperties:
       description: |
         bool indicating whether TxQ rd_wr_idx indexes by payloads instead of
         default dwords
+    - enum:
+      - 0
+      - 1
+      description: |
+        bool indicating whether to enable client to receive separate handles
+        when importing same fence
 
   "qcom,hw\-fence\-client\-enabled\-+\w":
     description: |

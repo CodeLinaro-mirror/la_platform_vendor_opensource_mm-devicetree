@@ -49,6 +49,9 @@
 		qcom,hw-fence-client-type-ife10 = <8 1 128 1>;
 		qcom,hw-fence-client-type-ife11 = <8 1 128 1>;
 
+		/* extra client properties */
+		qcom,hw-fence-client-type-vpu-extra = <0 0 0 0 0 1>;
+
 		/* haven io-mem specific */
 		hw_fence@1 {
 			compatible = "qcom,msm-hw-fence-mem";
