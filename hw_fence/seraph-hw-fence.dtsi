@@ -33,7 +33,7 @@
 		qcom,hw-fence-client-type-dpu = <0 1 128 1>;
 		qcom,hw-fence-client-type-val = <7 2 64 0>;
 		qcom,hw-fence-client-type-vpu = <1 2 400 0>;
-		qcom,hw-fence-client-type-lsr = <1 1 400 0>;
+		qcom,hw-fence-client-type-lsr = <1 2 200 0>;
 		qcom,hw-fence-client-type-dcp = <1 2 400 0>;
 		qcom,hw-fence-client-type-ipa = <1 2 400 0>;
 		qcom,hw-fence-client-type-ife0 = <20 1 128 1>;
@@ -48,6 +48,9 @@
 		qcom,hw-fence-client-type-ife9 = <8 1 128 1>;
 		qcom,hw-fence-client-type-ife10 = <8 1 128 1>;
 		qcom,hw-fence-client-type-ife11 = <8 1 128 1>;
+
+		/* extra client properties */
+		qcom,hw-fence-client-type-vpu-extra = <0 0 0 0 0 1>;
 
 		/* haven io-mem specific */
 		hw_fence@1 {
