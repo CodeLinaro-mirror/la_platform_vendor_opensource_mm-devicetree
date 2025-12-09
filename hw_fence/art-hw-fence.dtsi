@@ -14,11 +14,12 @@
 		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-controller;
 		#interrupt-cells = <1>;
-		iommus = <&apps_smmu 0x562 0x1>;
+		iommus = <&apps_smmu 0x162 0x1>;
 		dma-coherent;
 		soccp_controller = <&soccp_pas>;
-		shbuf_soccp_va = <0xd4e23000>;
+		shbuf_soccp_va = <0xd0000000>;
 
+		qcom,hw-fence-page-size = <16384>;
 		qcom,hw-fence-table-entries = <8192>;
 		qcom,hw-fence-queue-entries = <800>;
 		qcom,ipcc-reg = <0x1100000 0x400000>;
@@ -27,12 +28,17 @@
 		qcom,qtime-reg = <0xC221000 0x1000>;
 
 		/* ipc version */
-		qcom,hw-fence-ipc-ver = <0x30102>;
+		qcom,hw-fence-ipc-ver = <0x30204>;
 
 		/* base client queue properties */
-		qcom,hw-fence-client-type-dpu = <6 2 128 1>;
-		qcom,hw-fence-client-type-dcp = <1 2 800 0>;
-		qcom,hw-fence-client-type-vpu = <1 2 800 0>;
-		qcom,hw-fence-client-type-ife0 = <1 1 128 1>;
+		qcom,hw-fence-client-type-dpu = <0 1 128 1>;
+		qcom,hw-fence-client-type-val = <7 2 128 0>;
+		qcom,hw-fence-client-type-vpu = <1 2 400 0>;
+		qcom,hw-fence-client-type-dcp = <1 2 400 0>;
+		qcom,hw-fence-client-type-nsp0 = <1 2 400 0>;
+		qcom,hw-fence-client-type-ife0 = <5 1 128 1>;
+		qcom,hw-fence-client-type-ife1 = <5 1 128 1>;
+		qcom,hw-fence-client-type-ife2 = <5 1 128 1>;
+
 	};
 };
