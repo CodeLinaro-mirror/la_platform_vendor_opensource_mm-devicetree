@@ -11,7 +11,7 @@
 		status = "ok";
 
 		/* SOCCP properties */
-		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+		interrupts = <GIC_ESPI 134 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-controller;
 		#interrupt-cells = <1>;
 		iommus = <&apps_smmu 0x162 0x1>;
