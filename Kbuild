@@ -84,6 +84,15 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 		seraph-mm-idp-overlay.dtbo \
 		seraph-mm-idp-no-display-overlay.dtbo \
 		seraph-mm-rumi-overlay.dtbo
+
+	CONFIG_OS_DTS := false
+	ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
+		CONFIG_OS_DTS := true
+	endif
+	ifeq ($(CONFIG_OS_DTS), true)
+		dtbo-y += hfi_core/seraph-hfi-core.dtbo
+	endif
+
 endif
 
 ifeq ($(CONFIG_ARCH_LEMANS), y)
