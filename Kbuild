@@ -26,8 +26,8 @@ ifeq ($(CONFIG_ARCH_SUN), y)
 		sun-mm-cdp-no-display-overlay.dtbo
 endif
 
-ifeq ($(CONFIG_ARCH_CANOE), y)
-	dtbo-y += hw_fence/canoe-hw-fence.dtbo \
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_CANOE) += hw_fence/canoe-hw-fence.dtbo \
 		hfi_core/canoe-hfi-core.dtbo \
 		canoe-mm-atp-overlay.dtbo \
 		canoe-mm-cdp-kiwi-overlay.dtbo \
@@ -44,6 +44,9 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 		alor-interposer-mm-mtp-overlay.dtbo \
 		hw_fence/alor-interposer-hw-fence.dtbo \
 		alor-interposer-mm-qrd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_CANOE) += hfi_core/trustedvm-canoe-hfi-core.dtbo \
+		trustedvm-canoe-mm-mtp-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ART), y)
@@ -84,6 +87,15 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 		seraph-mm-idp-overlay.dtbo \
 		seraph-mm-idp-no-display-overlay.dtbo \
 		seraph-mm-rumi-overlay.dtbo
+
+	CONFIG_OS_DTS := false
+	ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
+		CONFIG_OS_DTS := true
+	endif
+	ifeq ($(CONFIG_OS_DTS), true)
+		dtbo-y += hfi_core/seraph-hfi-core.dtbo
+	endif
+
 endif
 
 ifeq ($(CONFIG_ARCH_LEMANS), y)
