@@ -12,5 +12,5 @@
 	model = "Qualcomm Technologies, Inc. SA8797 Single LA Guest Virtual Machine";
 	compatible = "qcom,nordy", "qcom,qam";
 	qcom,msm-id = <690 0x10000>, <690 0x20000>, <690 0x10001>;
-	qcom,board-id = <0x10025 0x0>;
+	qcom,board-id = <0x10025 0x0>, <0x01010025 0x1>;
 };
