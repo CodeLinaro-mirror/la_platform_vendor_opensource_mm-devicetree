@@ -14,5 +14,5 @@
 	compatible = "qcom,artl-rcm", "qcom,artl", "qcom,artlp-rcm", "qcom,artlp",
 			   "qcom,rcm";
 	qcom,msm-id = <755 0x10000>;
-	qcom,board-id = <0x15 0>;
+	qcom,board-id = <0x10015 0x0>, <0x20015 0x0>;
 };
