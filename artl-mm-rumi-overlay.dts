@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "hw_fence/art-hw-fence.dtsi"
+#include "hfi_core/art-hfi-core.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Artl RUMI";
+	compatible = "qcom,artl-rumi", "qcom,artl", "qcom,rumi";
+	qcom,msm-id = <755 0x10000>;
+	qcom,board-id = <15 0>;
+};
