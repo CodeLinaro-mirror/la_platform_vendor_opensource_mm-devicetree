@@ -49,15 +49,27 @@ dtbo-$(CONFIG_ARCH_CANOE) += hfi_core/trustedvm-canoe-hfi-core.dtbo \
 		trustedvm-canoe-mm-mtp-overlay.dtbo
 endif
 
-ifeq ($(CONFIG_ARCH_ART), y)
-	dtbo-y += hw_fence/art-hw-fence.dtbo \
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		hfi_core/art-hfi-core.dtbo \
 		art-mm-atp-overlay.dtbo \
 		art-mm-cdp-overlay.dtbo \
 		art-mm-mtp-overlay.dtbo \
 		art-mm-qrd-overlay.dtbo \
 		art-mm-rcm-overlay.dtbo \
-		art-mm-rumi-overlay.dtbo
+		art-mm-rumi-overlay.dtbo \
+		hw_fence/artl-hw-fence.dtbo \
+		hfi_core/artl-hfi-core.dtbo \
+		artl-mm-atp-overlay.dtbo \
+		artl-mm-cdp-overlay.dtbo \
+		artl-mm-mtp-overlay.dtbo \
+		artl-mm-qrd-overlay.dtbo \
+		artl-mm-rcm-overlay.dtbo \
+		artl-mm-rumi-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_ART) += hfi_core/trustedvm-art-hfi-core.dtbo \
+		trustedvm-art-mm-mtp-overlay.dtbo \
+		trustedvm-art-mm-omtp-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
