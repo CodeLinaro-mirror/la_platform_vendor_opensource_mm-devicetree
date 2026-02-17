@@ -60,12 +60,16 @@ dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		art-mm-rumi-overlay.dtbo \
 		hw_fence/artl-hw-fence.dtbo \
 		hfi_core/artl-hfi-core.dtbo \
+		hw_fence/arth-hw-fence.dtbo \
+		hfi_core/arth-hfi-core.dtbo \
 		artl-mm-atp-overlay.dtbo \
 		artl-mm-cdp-overlay.dtbo \
 		artl-mm-mtp-overlay.dtbo \
 		artl-mm-qrd-overlay.dtbo \
 		artl-mm-rcm-overlay.dtbo \
-		artl-mm-rumi-overlay.dtbo
+		artl-mm-rumi-overlay.dtbo \
+		arth-mm-cdp-overlay.dtbo \
+		arth-mm-mtp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ART) += hfi_core/trustedvm-art-hfi-core.dtbo \
 		trustedvm-art-mm-mtp-overlay.dtbo \
