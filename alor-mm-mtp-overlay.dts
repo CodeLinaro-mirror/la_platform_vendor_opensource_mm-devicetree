@@ -12,6 +12,7 @@
 / {
 	model = "Qualcomm Technologies, Inc. Alor MTP + wcn7750 WLAN + SN220U + Kundu";
 	compatible = "qcom,alor-mtp", "qcom,alor", "qcom,mtp";
-	qcom,msm-id = <685 0x10000>, <727 0x10000>;
-	qcom,board-id = <0x10008 0>, <0x20008 0>, <0x30008 0>;
+	qcom,msm-id = <685 0x10000>, <727 0x10000>, <764 0x10000>;
+	qcom,board-id = <0x10008 0>, <0x20008 0>, <0x30008 0>,
+			<0x50008 0>;
 };
