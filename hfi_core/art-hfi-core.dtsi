@@ -13,6 +13,7 @@
 		status = "ok";
 
 		depends-on-supply = <&qcom_smp2p_dcp>;
+		qcom,hfi-client-id = <1>;
 
 		/* MBOX properties */
 		mboxes = <&ipcc_mproc IPCC_MPROC_DCP 5>,
