@@ -67,8 +67,9 @@ dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		artl-mm-rcm-overlay.dtbo \
 		artl-mm-rumi-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_ART) += hfi_core/trustedvm-art-hfi-core.dtbo \
+dtbo-$(CONFIG_ARCH_ART) += trustedvm-art-mm-cdp-overlay.dtbo \
 		trustedvm-art-mm-mtp-overlay.dtbo \
+		trustedvm-art-mm-qrd-overlay.dtbo \
 		trustedvm-art-mm-omtp-overlay.dtbo
 endif
 
