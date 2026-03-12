@@ -99,7 +99,8 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 	dtbo-y += hw_fence/seraph-hw-fence.dtbo \
 		seraph-mm-idp-overlay.dtbo \
 		seraph-mm-idp-no-display-overlay.dtbo \
-		seraph-mm-rumi-overlay.dtbo
+		seraph-mm-rumi-overlay.dtbo \
+		seraphp-mm-qar-overlay.dtbo
 
 	CONFIG_OS_DTS := false
 	ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
