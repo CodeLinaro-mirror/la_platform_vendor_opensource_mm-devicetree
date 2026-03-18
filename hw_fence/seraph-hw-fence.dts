@@ -10,6 +10,6 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. seraph SoC";
-	qcom,msm-id = <672 0x10000>, <673 0x10000>;
+	qcom,msm-id = <672 0x10000>, <673 0x10000>, <672 0x10001>, <673 0x10001>;
 	qcom,board-id = <0 0>,<15 0>;
 };
