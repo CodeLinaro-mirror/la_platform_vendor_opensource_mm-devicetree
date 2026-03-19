@@ -62,9 +62,11 @@
 		      <0x9ab1000 0x1000>,
 		      <0x9920408 0x4>,
 		      <0x9a70000 0x4>,
-		      <0x9912030 0x4>;
+		      <0x9912030 0x4>,
+			  <0x9930000 0x70>;
 		reg-names = "swi_page0", "swi_dev0", "sde_rscc_rsc",
-			    "dcp_rvcp_rvsscp_status", "disp_cc_dcp_proc_h_cbcr";
+			    "dcp_rvcp_rvsscp_status", "disp_cc_dcp_proc_h_cbcr",
+				"sde_rscc_wrapper";
 
 		/* firmware map start addr and max size */
 		qcom,device-map-addr-reg = <0x88000000 0x8000000>;
