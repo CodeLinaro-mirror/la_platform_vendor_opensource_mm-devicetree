@@ -77,6 +77,19 @@ dtbo-$(CONFIG_ARCH_ART) += trustedvm-art-mm-cdp-overlay.dtbo \
 		trustedvm-art-mm-omtp-overlay.dtbo
 endif
 
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PEBBLE) += hw_fence/pebble-hw-fence.dtbo \
+		hfi_core/pebble-hfi-core.dtbo \
+		pebble-mm-cdp-overlay.dtbo \
+		pebble-mm-mtp-overlay.dtbo \
+		pebble-mm-qrd-overlay.dtbo \
+		pebble-mm-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_PEBBLE) += trustedvm-pebble-mm-cdp-overlay.dtbo \
+		trustedvm-pebble-mm-mtp-overlay.dtbo \
+		trustedvm-pebble-mm-qrd-overlay.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_ALOR), y)
 	dtbo-y += hw_fence/alor-hw-fence.dtbo \
 		hfi_core/alor-hfi-core.dtbo \

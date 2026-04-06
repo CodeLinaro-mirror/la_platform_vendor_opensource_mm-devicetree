@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "pebble-hw-fence.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Pebble SoC";
+	compatible = "qcom,pebble";
+	qcom,msm-id = <735 0x10000>, <741 0x10000>;
+	qcom,board-id = <0 0>;
+};
+
