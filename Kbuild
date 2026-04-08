@@ -129,6 +129,10 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 
 endif
 
+ifeq ($(CONFIG_ARCH_PIKACHU), y)
+	dtbo-y += hfi_core/pikachu-hfi-core.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_LEMANS), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
 	dtbo-y += hw_fence/nordy-hw-fence-vm-la.dtbo
