@@ -60,12 +60,16 @@ dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		art-mm-rumi-overlay.dtbo \
 		hw_fence/artl-hw-fence.dtbo \
 		hfi_core/artl-hfi-core.dtbo \
+		hw_fence/arth-hw-fence.dtbo \
+		hfi_core/arth-hfi-core.dtbo \
 		artl-mm-atp-overlay.dtbo \
 		artl-mm-cdp-overlay.dtbo \
 		artl-mm-mtp-overlay.dtbo \
 		artl-mm-qrd-overlay.dtbo \
 		artl-mm-rcm-overlay.dtbo \
-		artl-mm-rumi-overlay.dtbo
+		artl-mm-rumi-overlay.dtbo \
+		arth-mm-cdp-overlay.dtbo \
+		arth-mm-mtp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ART) += trustedvm-art-mm-cdp-overlay.dtbo \
 		trustedvm-art-mm-mtp-overlay.dtbo \
@@ -99,7 +103,8 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 	dtbo-y += hw_fence/seraph-hw-fence.dtbo \
 		seraph-mm-idp-overlay.dtbo \
 		seraph-mm-idp-no-display-overlay.dtbo \
-		seraph-mm-rumi-overlay.dtbo
+		seraph-mm-rumi-overlay.dtbo \
+		seraphp-mm-qar-overlay.dtbo
 
 	CONFIG_OS_DTS := false
 	ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
