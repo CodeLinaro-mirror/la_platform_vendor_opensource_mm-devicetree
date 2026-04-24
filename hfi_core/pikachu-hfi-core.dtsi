@@ -4,7 +4,7 @@
  */
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
-//#include <dt-bindings/mailbox/qcom-ipcc-seraph.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
 #include <dt-bindings/mailbox/qcom-ipcc.h>
 
 &soc {
@@ -53,7 +53,6 @@
 
 		/* DCP properties */
 		iommus = <&apps_smmu 0x19A3 0x0>;
-		qcom,iommu-group = <&dcp_cb_group>;
 		dma-coherent;
 		memory-region = <&hfi_core_iommu_region_partition>;
 
@@ -62,11 +61,9 @@
 		      <0x9ab1000 0x1000>,
 		      <0x9920408 0x4>,
 		      <0x9a70000 0x4>,
-		      <0x9912030 0x4>,
-			  <0x9930000 0x70>;
+		      <0x9912030 0x4>;
 		reg-names = "swi_page0", "swi_dev0", "sde_rscc_rsc",
-			    "dcp_rvcp_rvsscp_status", "disp_cc_dcp_proc_h_cbcr",
-				"sde_rscc_wrapper";
+			    "dcp_rvcp_rvsscp_status", "disp_cc_dcp_proc_h_cbcr";
 
 		/* firmware map start addr and max size */
 		qcom,device-map-addr-reg = <0x88000000 0x8000000>;
@@ -78,8 +75,5 @@
 
 		/* dcp fast reset on low power collapse */
 		qcom,enable-dcp-fast-reset;
-
-		/* Enable DCP SSR */
-		qcom,enable-ssr;
 	};
 };
