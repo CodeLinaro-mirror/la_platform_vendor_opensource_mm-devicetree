@@ -10,9 +10,8 @@
 #include "hfi_core/pebble-hfi-core.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Pebble QRD";
-	compatible = "qcom,pebble-qrd", "qcom,qrd", "qcom,pebble";
+	model = "Qualcomm Technologies, Inc. Pebble ATP";
+	compatible = "qcom,pebble-atp", "qcom,atp", "qcom,pebble";
 	qcom,msm-id = <735 0x10000>, <741 0x10000>;
-	qcom,board-id = <0x1000b 0x0>, <0x2000b 0x0>, <0x1010b 0x0>, <0x1020b 0x0>;
+	qcom,board-id = <0x10021 0x0>, <0x20021 0x0>;
 };
-
