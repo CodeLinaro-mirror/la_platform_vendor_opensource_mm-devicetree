@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "hfi_core/trustedvm-pebble-hfi-core.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Pebble SVM MTP";
+	compatible = "qcom,pebble-mtp", "qcom,pebble", "qcom,mtp";
+	qcom,msm-id = <735 0x10000>, <741 0x10000>;
+	qcom,board-id = <0x10008 0>;
+};
+
