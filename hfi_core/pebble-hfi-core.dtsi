@@ -4,7 +4,7 @@
  */
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
-#include <dt-bindings/mailbox/qcom-ipcc-art.h>
+#include <dt-bindings/mailbox/qcom-ipcc-pebble.h>
 #include <dt-bindings/mailbox/qcom-ipcc.h>
 
 &soc {
@@ -59,8 +59,8 @@
 		qcom,device-map-addr-reg = <0x84000000 0x4000000>;
 
 		/* firmware image specific information */
-		qcom,pas-id = <63 64>;
-		memory-region = <&dcp_mem &dcp_dtb_mem>;
-		qcom,fw_image_name = "dcp.mbn", "dcp_dtb.mbn";
+		qcom,pas-id = <63>;
+		memory-region = <&dcp_mem>;
+		qcom,fw_image_name = "dcp.mbn";
 	};
 };

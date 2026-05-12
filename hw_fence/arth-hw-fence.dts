@@ -6,11 +6,12 @@
 /dts-v1/;
 /plugin/;
 
-#include "alor-hfi-core.dtsi"
+#include "art-hw-fence.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Alor SoC";
-	compatible = "qcom,alor";
-	qcom,msm-id = <685 0x10000>, <727 0x10000>, <764 0x10000>;
+	model = "Qualcomm Technologies, Inc. Arth";
+	compatible = "qcom,arth";
+	qcom,msm-id = <760 0x10000>;
 	qcom,board-id = <0 0>;
 };
+
