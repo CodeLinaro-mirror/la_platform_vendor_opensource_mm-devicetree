@@ -141,7 +141,12 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 endif
 
 ifeq ($(CONFIG_ARCH_PIKACHU), y)
-	dtbo-y += hfi_core/pikachu-hfi-core.dtbo
+	dtbo-y += hfi_core/pikachu-hfi-core.dtbo \
+		hw_fence/pikachu-hw-fence.dtbo \
+		pikachu-mm-idp-overlay.dtbo \
+		pikachu-mm-atp-overlay.dtbo \
+		pikachu-mm-rumi-overlay.dtbo
+
 endif
 
 ifeq ($(CONFIG_ARCH_LEMANS), y)
