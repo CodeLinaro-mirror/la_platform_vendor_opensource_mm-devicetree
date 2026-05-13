@@ -12,6 +12,6 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pebble ATP";
 	compatible = "qcom,pebble-atp", "qcom,atp", "qcom,pebble";
-	qcom,msm-id = <735 0x10000>, <741 0x10000>;
+	qcom,msm-id = <735 0x10000>, <735 0x10001>, <741 0x10000>, <741 0x10001>;
 	qcom,board-id = <0x10021 0x0>, <0x20021 0x0>;
 };
