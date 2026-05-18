@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "hw_fence/pebble-hw-fence.dtsi"
+#include "hfi_core/pebble-hfi-core.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Pebble MTP";
+	compatible = "qcom,pebble-mtp", "qcom,mtp", "qcom,pebble";
+	qcom,msm-id = <735 0x10000>, <741 0x10000>;
+	qcom,board-id = <0x10108 0x0>, <0x50008 0x0>, <0x10008 0x0>, <0x20008 0x0>, <0x20108 0x0>,
+		<0x30108 0x0>, <0x30008 0x0>, <0x60108 0x0>, <0x10308 0x0>, <0x60008 0x0>,
+		<0x10208 0x0>;
+};
