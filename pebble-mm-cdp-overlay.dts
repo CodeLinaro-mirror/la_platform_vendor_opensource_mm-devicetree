@@ -12,6 +12,6 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pebble CDP";
 	compatible = "qcom,pebble-cdp", "qcom,cdp", "qcom,pebble";
-	qcom,msm-id = <735 0x10000>, <741 0x10000>;
+	qcom,msm-id = <735 0x10000>, <735 0x10001>, <741 0x10000>, <741 0x10001>;
 	qcom,board-id = <0x30001 0x0>, <0x40001 0x0>, <0x10001 0x0>, <0x20001 0x0>, <0x10101 0x0>;
 };

@@ -62,5 +62,8 @@
 		qcom,pas-id = <63 64>;
 		memory-region = <&dcp_mem &dcp_dtb_mem>;
 		qcom,fw_image_name = "dcp.mbn", "dcp_dtb.mbn";
+
+		/* Enable DCP SSR */
+		qcom,enable-ssr;
 	};
 };
