@@ -6,11 +6,12 @@
 /dts-v1/;
 /plugin/;
 
-#include "trustedvm-pebble-hfi-core.dtsi"
+
+#include "hfi_core/trustedvm-pebble-hfi-core.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Pebble - TrustedVM HFI Core";
-	compatible = "qcom,pebble";
+	model = "Qualcomm Technologies, Inc. Pebble SVM ATP";
+	compatible = "qcom,pebble-atp", "qcom,pebble", "qcom,atp";
 	qcom,msm-id = <735 0x10000>, <735 0x10001>, <741 0x10000>, <741 0x10001>;
-	qcom,board-id = <0 0>;
+	qcom,board-id = <0x10021 0>, <0x20021 0x0>;
 };
