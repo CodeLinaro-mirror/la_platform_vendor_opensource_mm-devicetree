@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/mailbox/qcom-ipcc-pebble.h>
+#include <dt-bindings/mailbox/qcom-ipcc.h>
+#include "trustedvm-pebble-avf-required-subnodes-hfi-core.dtsi"
+
+&soc {
+	msm_hfi_core: qcom,hfi-core {
+		compatible = "qcom,msm-tvm-hfi-core";
+		status = "ok";
+		qcom,hfi-client-id = <2>;
+
+		mboxes = <&ipcc_mproc_ns1 IPCC_MPROC_DCP 5>,
+				<&ipcc_mproc_ns1 IPCC_MPROC_DCP 6>;
+		interrupts-extended = <&ipcc_mproc_ns1 IPCC_MPROC_DCP 5 IRQ_TYPE_EDGE_RISING>,
+				<&ipcc_mproc_ns1 IPCC_MPROC_DCP 6 IRQ_TYPE_EDGE_RISING>;
+
+		interrupt-names = "dcp_power_notify_irq",
+					"dcp_event_notify_irq";
+		iommus = <&apps_smmu 0x15A5 0x0>;
+		dma-coherent;
+
+		reg = <0x0 0x9c62000 0x0 0x1000>;
+		reg-names = "swi_dev1";
+
+		qcom,device-map-addr-reg = <0x8C000000 0x4000000>;
+	};
+};
+
