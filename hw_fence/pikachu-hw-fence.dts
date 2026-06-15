@@ -6,10 +6,10 @@
 /dts-v1/;
 /plugin/;
 
-#include "seraph-hw-fence.dtsi"
+#include "pikachu-hw-fence.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. seraph SoC";
-	qcom,msm-id = <672 0x10000>, <673 0x10000>, <672 0x10001>, <673 0x10001>;
+	model = "Qualcomm Technologies, Inc. pikachu SoC";
+	qcom,msm-id = <736 0x10000>, <737 0x10000>;
 	qcom,board-id = <0 0>,<15 0>;
 };

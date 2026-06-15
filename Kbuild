@@ -94,11 +94,14 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += hw_fence/pebble-hw-fence.dtbo \
 		pebble-mm-cdp-overlay.dtbo \
 		pebble-mm-mtp-overlay.dtbo \
 		pebble-mm-qrd-overlay.dtbo \
-		pebble-mm-rcm-overlay.dtbo
+		pebble-mm-rcm-overlay.dtbo \
+		pebble-mm-atp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_PEBBLE) += trustedvm-pebble-mm-cdp-overlay.dtbo \
 		trustedvm-pebble-mm-mtp-overlay.dtbo \
-		trustedvm-pebble-mm-qrd-overlay.dtbo
+		trustedvm-pebble-mm-qrd-overlay.dtbo \
+		trustedvm-pebble-mm-rcm-overlay.dtbo \
+		trustedvm-pebble-mm-atp-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
@@ -141,7 +144,12 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 endif
 
 ifeq ($(CONFIG_ARCH_PIKACHU), y)
-	dtbo-y += hfi_core/pikachu-hfi-core.dtbo
+	dtbo-y += hfi_core/pikachu-hfi-core.dtbo \
+		hw_fence/pikachu-hw-fence.dtbo \
+		pikachu-mm-idp-overlay.dtbo \
+		pikachu-mm-atp-overlay.dtbo \
+		pikachu-mm-rumi-overlay.dtbo
+
 endif
 
 ifeq ($(CONFIG_ARCH_LEMANS), y)
