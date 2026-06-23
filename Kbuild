@@ -69,7 +69,18 @@ dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		artl-mm-rcm-overlay.dtbo \
 		artl-mm-rumi-overlay.dtbo \
 		arth-mm-cdp-overlay.dtbo \
-		arth-mm-mtp-overlay.dtbo
+		arth-mm-mtp-overlay.dtbo \
+		art-mm-mtp-fig-bt-st54l-overlay.dtbo \
+		art-mm-mtp-fig-pro-overlay.dtbo \
+		art-mm-mtp-fig-qmp1000-3.5mm-overlay.dtbo \
+		art-mm-mtp-fig-st54l-overlay.dtbo \
+		art-mm-mtp-peach-qmp1000-overlay.dtbo \
+		art-mm-mtp-peach-st54l-overlay.dtbo \
+		art-mm-omtp-overlay.dtbo \
+		art-mm-qrd-sku1-overlay.dtbo \
+		art-mm-qrd-sku2-overlay.dtbo \
+		art-mm-rcm-fig-overlay.dtbo \
+		art-mm-rcm-peach-sn300u-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ART) += trustedvm-art-mm-cdp-overlay.dtbo \
 		trustedvm-art-mm-mtp-overlay.dtbo \
@@ -83,11 +94,14 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += hw_fence/pebble-hw-fence.dtbo \
 		pebble-mm-cdp-overlay.dtbo \
 		pebble-mm-mtp-overlay.dtbo \
 		pebble-mm-qrd-overlay.dtbo \
-		pebble-mm-rcm-overlay.dtbo
+		pebble-mm-rcm-overlay.dtbo \
+		pebble-mm-atp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_PEBBLE) += trustedvm-pebble-mm-cdp-overlay.dtbo \
 		trustedvm-pebble-mm-mtp-overlay.dtbo \
-		trustedvm-pebble-mm-qrd-overlay.dtbo
+		trustedvm-pebble-mm-qrd-overlay.dtbo \
+		trustedvm-pebble-mm-rcm-overlay.dtbo \
+		trustedvm-pebble-mm-atp-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
@@ -126,6 +140,15 @@ ifeq ($(CONFIG_ARCH_SERAPH), y)
 	ifeq ($(CONFIG_OS_DTS), true)
 		dtbo-y += hfi_core/seraph-hfi-core.dtbo
 	endif
+
+endif
+
+ifeq ($(CONFIG_ARCH_PIKACHU), y)
+	dtbo-y += hfi_core/pikachu-hfi-core.dtbo \
+		hw_fence/pikachu-hw-fence.dtbo \
+		pikachu-mm-idp-overlay.dtbo \
+		pikachu-mm-atp-overlay.dtbo \
+		pikachu-mm-rumi-overlay.dtbo
 
 endif
 
