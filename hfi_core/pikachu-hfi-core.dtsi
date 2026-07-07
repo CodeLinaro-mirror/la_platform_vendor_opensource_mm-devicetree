@@ -73,9 +73,6 @@
 		fw-memory-region = <&dcp_mem>;
 		qcom,fw_image_name = "dcp.mbn";
 
-		/* dcp fast reset on low power collapse */
-		qcom,enable-dcp-fast-reset;
-
 		/* Enable DCP SSR */
 		qcom,enable-ssr;
 	};
