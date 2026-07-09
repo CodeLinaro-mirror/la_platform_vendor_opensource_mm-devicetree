@@ -9,9 +9,8 @@
 #include "hfi_core/trustedvm-art-hfi-core.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Art MTP - TrustedVM";
-	compatible = "qcom,art-mtp", "qcom,art", "qcom,artp-cdp", "qcom,artp",
-			"qcom,mtp";
+	model = "Qualcomm Technologies, Inc. Art SVM MTP";
+	compatible = "qcom,art-mtp", "qcom,art", "qcom,mtp";
 	qcom,msm-id = <707 0x10000>, <707 0x20000>, <708 0x10000>, <708 0x20000>;
 	qcom,board-id = <8 0>;
 };
