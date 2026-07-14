@@ -104,6 +104,15 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += trustedvm-pebble-mm-cdp-overlay.dtbo \
 		trustedvm-pebble-mm-atp-overlay.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_COAST), y)
+	dtbo-y += hfi_core/coast-hfi-core.dtbo \
+		coast-mm-cdp-overlay.dtbo \
+		coast-mm-mtp-overlay.dtbo \
+		coast-mm-qrd-overlay.dtbo \
+		coast-mm-rcm-overlay.dtbo \
+		coast-mm-atp-overlay.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_ALOR), y)
 	dtbo-y += hw_fence/alor-hw-fence.dtbo \
 		hfi_core/alor-hfi-core.dtbo \
