@@ -154,7 +154,8 @@ endif
 
 ifeq ($(CONFIG_ARCH_LEMANS), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
-	dtbo-y += hw_fence/nordy-hw-fence-vm-la.dtbo
+	dtbo-y += hw_fence/nordy-hw-fence-vm-la.dtbo \
+		hw_fence/seca-hw-fence-vm-la.dtbo
 endif
 endif
 
