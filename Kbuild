@@ -53,6 +53,7 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		hfi_core/art-hfi-core.dtbo \
 		art-mm-atp-overlay.dtbo \
+		art-mm-atp-lp6-overlay.dtbo \
 		art-mm-cdp-overlay.dtbo \
 		art-mm-mtp-overlay.dtbo \
 		art-mm-qrd-overlay.dtbo \
