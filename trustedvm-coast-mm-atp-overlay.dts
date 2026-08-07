@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+
+#include "hfi_core/trustedvm-coast-hfi-core.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Coast SVM ATP";
+	compatible = "qcom,coast-atp", "qcom,coast", "qcom,atp";
+	qcom,msm-id = <761 0x10000>;
+	qcom,board-id = <0x10021 0x0>;
+};
