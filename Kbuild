@@ -53,6 +53,7 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ART) += hw_fence/art-hw-fence.dtbo \
 		hfi_core/art-hfi-core.dtbo \
 		art-mm-atp-overlay.dtbo \
+		art-mm-atp-lp6-overlay.dtbo \
 		art-mm-cdp-overlay.dtbo \
 		art-mm-mtp-overlay.dtbo \
 		art-mm-qrd-overlay.dtbo \
@@ -102,6 +103,21 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += trustedvm-pebble-mm-cdp-overlay.dtbo \
 		trustedvm-pebble-mm-qrd-overlay.dtbo \
 		trustedvm-pebble-mm-rcm-overlay.dtbo \
 		trustedvm-pebble-mm-atp-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_COAST) += hfi_core/coast-hfi-core.dtbo \
+		coast-mm-cdp-overlay.dtbo \
+		coast-mm-mtp-overlay.dtbo \
+		coast-mm-qrd-overlay.dtbo \
+		coast-mm-rcm-overlay.dtbo \
+		coast-mm-atp-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_COAST) += trustedvm-coast-mm-cdp-overlay.dtbo \
+		trustedvm-coast-mm-mtp-overlay.dtbo \
+		trustedvm-coast-mm-qrd-overlay.dtbo \
+		trustedvm-coast-mm-rcm-overlay.dtbo \
+		trustedvm-coast-mm-atp-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR), y)
