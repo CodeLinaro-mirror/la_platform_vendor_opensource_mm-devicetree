@@ -52,7 +52,9 @@
 		qcom,smem-state-names = "stop", "ping", "wdog", "fatal";
 
 		/* DCP properties */
-		iommus = <&apps_smmu 0x19A3 0x0>;
+		iommus = <&apps_smmu 0x19A3 0x0>,
+			<&apps_smmu 0x19A4 0x0>;
+
 		qcom,iommu-group = <&dcp_cb_group>;
 		dma-coherent;
 		memory-region = <&hfi_core_iommu_region_partition>;
@@ -70,6 +72,9 @@
 
 		/* firmware map start addr and max size */
 		qcom,device-map-addr-reg = <0x88000000 0x8000000>;
+
+		/* DCP mapping size within LPAI region for HFI virtqueues & DCS */
+		qcom,device-lpai-map-size = <0x40000>;
 
 		/* firmware image specific information */
 		qcom,pas-id = <63>;
