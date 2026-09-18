@@ -11,6 +11,6 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pikachu SoC";
 	compatible = "qcom,pikachu";
-	qcom,msm-id = <736 0x10000>, <737 0x10000>;
+	qcom,msm-id = <736 0x10000>;
 	qcom,board-id = <0 0>, <15 0>;
 };
