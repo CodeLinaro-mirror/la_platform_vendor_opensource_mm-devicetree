@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "hfi_core/coast-hfi-core.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Coast RCM";
+	compatible = "qcom,coast-rcm", "qcom,rcm", "qcom,coast";
+	qcom,msm-id = <761 0x10000>;
+	qcom,board-id = <0x10015 0x0>, <0x20015 0x0>, <0x10115 0x0>, <0x20115 0x0>;
+};
